@@ -14,6 +14,7 @@ Because I couldn't find a fully-featured Linux-native mod manager for Skyrim, an
 
 - Save, apply, and remove modlists
 - Automatically download mods from Nexus (will need api key)
+- Currently the included version of gum only supports Linux x86_64. Will add ability to have other versions in the future.
 
 ## Instructions
 
@@ -21,4 +22,4 @@ Placeholder
 
 ## Acknowledgments
 
-This project relies on the tool [Gum](https://github.com/charmbracelet/gum), allowing for an easy and nice looking TUI. This script will grab a copy of the binary off of GitHub in case you don't have it installed locally. 
+This project relies on the tool [Gum](https://github.com/charmbracelet/gum), allowing for an easy and nice looking TUI.
