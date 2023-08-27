@@ -30,6 +30,13 @@ func_main_menu () {
 }
 
 
+# Checks if active directory is that which contains the manager.
+# For now, there is no way to be sure of the directory that the script is installed in.
+if [[ $(ls | grep -w -o skyrimModManager.sh) == "" ]]
+	then
+	printf "Error: Must be in same directory as the script!\n"
+	exit
+fi
 
 # Checks if gum is installed or if binary was previously downloaded
 if [[ $(whereis gum) == "gum:" ]] && [[ $(ls | grep -w -o gum) == "" ]]
