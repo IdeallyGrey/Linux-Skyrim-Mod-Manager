@@ -21,4 +21,4 @@ Placeholder
 
 ## Acknowledgments
 
-This project relies on the tool [Gum](https://github.com/charmbracelet/gum), allowing for an easy and nice looking TUI. This script will grab a copy of the binary off of GitHub in case you don't have it installed locally. 
+This project relies on the tool [Gum](https://github.com/charmbracelet/gum), allowing for an easy and nice looking TUI.
