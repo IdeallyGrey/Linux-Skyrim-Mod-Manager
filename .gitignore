@@ -1,1 +1,3 @@
-
+# Ignore everything in modlsits/, except FORMAT.md
+modlists/*
+!modlists/FORMAT.md
