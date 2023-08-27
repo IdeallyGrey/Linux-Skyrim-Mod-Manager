@@ -7,7 +7,6 @@ skyrimSteamAppID=72850
 # Gum stylings
 export GUM_CHOOSE_HEADER_FOREGROUND="9"
 export GUM_CHOOSE_CURSOR_FOREGROUND="4"
-export GUM_CHOOSE_HEADER_BORDER="rounded"
 export GUM_CONFIRM_SELECTED_BACKGROUND="4"
 export GUM_CONFIRM_SELECTED_BOLD="true"
 
@@ -15,13 +14,27 @@ func_launch_game () {
 	./gum confirm "Launch Game?" && ./gum spin steam steam://rungameid/$skyrimSteamAppID --spinner="line" --title="Loading..." && exit || func_main_menu
 }
 
+func_modlist_options_menu () {
+	case $(./gum choose "Apply new modlist(s)" "Remove current modlist" "Back to main menu" --header="Modlists" --cursor=" >> ") in 
+		"Apply new modlist")
+			printf "Applying new modlist"
+			;;
+		"Remove current modlist(s)")
+			printf "Removing modlist"
+			;;
+		"Back to main menu")
+			func_main_menu
+			;;
+	esac
+}
+
 func_main_menu () {
-	case $(./gum choose "Launch Skyrim!" "Change applyed modlist" "Exit" --header="Skyrim Mod Manager" --cursor=" >> ") in
+	case $(./gum choose "Launch Skyrim!" "Change applied modlist" "Exit" --header="Skyrim Mod Manager" --header.border="rounded" --cursor=" >> ") in
 		"Launch Skyrim!")
 			func_launch_game
 			;;
 		"Change applied modlist")
-                	printf "what list"
+                	func_modlist_options_menu
                 	;;
         	"Exit") 
                 	exit 
