@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Set this to the directory containing all of Skyrim's files.
-skyrimDirectory="/home/lukas/temp/Skyrim"
+skyrimDirectory="/home/lukas/.local/share/Steam/steamapps/common/Skyrim"
 skyrimSteamAppID=72850
 
 # Gum stylings
