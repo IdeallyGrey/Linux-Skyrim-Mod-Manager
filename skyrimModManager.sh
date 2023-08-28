@@ -11,14 +11,19 @@ export GUM_CONFIRM_SELECTED_BACKGROUND="4"
 export GUM_CONFIRM_SELECTED_BOLD="true"
 
 
+func_apply_modlist_menu () {
+	modlistToApply=$(./gum/gum choose $(ls ./modlists | grep -v FORMAT.md))
+	
+}
+
 func_launch_game () {
 	./gum/gum confirm "Launch Game?" && ./gum/gum spin steam steam://rungameid/$skyrimSteamAppID --spinner="line" --title="Loading..." && exit || func_main_menu
 }
 
 func_modlist_options_menu () {
 	case $(./gum/gum choose "Apply new modlist(s)" "Remove current modlist" "Back to main menu" --header="Modlists" --cursor=" >> ") in 
-		"Apply new modlist")
-			printf "Applying new modlist"
+		"Apply new modlist(s)")
+			func_apply_modlist_menu
 			;;
 		"Remove current modlist(s)")
 			printf "Removing modlist"
