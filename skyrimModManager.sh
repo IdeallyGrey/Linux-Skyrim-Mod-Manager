@@ -27,6 +27,7 @@ func_apply_modlist_menu () {
 		func_modlist_options_menu
 		exit
 	fi
+	# Checks to be sure that the selected modlist actually exists, should prevent manager from taking action when it shouldn't (ie: user ctrl+c's while in the selection menu).
 	if [[ $(ls ./modlists | grep -w $modlistToApply) == "" ]]
 		then
 		printf "Error, selected item not in directory.\n"
@@ -36,7 +37,7 @@ func_apply_modlist_menu () {
 	mkdir ./modlists/temp
 	cp -r ./modlists/$modlistToApply/* modlists/temp/
 	cd ./modlists/temp
-	# Replaces spaces with underscores, prefixes "tagged_" to every file (not directory)
+	# Replaces spaces with underscores, prefixes "tagged_" to every file (not directories)
 	for i in *\ *; do mv "$i" "${i// /_}"; done
 	for i in $(ls -p | grep -v /); do mv "$i" "tagged_$i"; done
 	cd ../..
